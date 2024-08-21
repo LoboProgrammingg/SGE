@@ -11,6 +11,7 @@ SGE - Produtos
 		<form method="get" action="{% url 'product_list' %}">
 			<div class="input-group">
 				<input type="text" class="form-control" name="title" placeholder="Titulo" value="{{ request.GET.title }}">
+				<input type="text" class="form-control" name="serie_number" placeholder="Numero de Serie" value="{{ request.GET.serie_number }}">
 				<button type="submit" class="btn btn-primary">
 					<i class="bi bi-search"></i>
 				</button>
@@ -22,6 +23,32 @@ SGE - Produtos
 		<a href="{% url 'product_create' %}" class="btn btn-success float-end">
 			<i class="bi bi-plus"></i>Adicionar Produto
 		</a>
+	</div>
+</div>
+
+<div class="row mb-3">
+	<div class="col-md-6">
+		<form method="get" action="{% url 'product_list' %}">
+			<div class="input-group">
+				<select class="form-select" name="category">
+					<option value="" {% if not request.GET.category %} selected {% endif %}>Todas as Categorias</option>
+					{% for category in categories %}
+              <option value="{{ category.id }}" {% if request.GET.category == category.id %} selected {% endif %}>{{ category.name }}</option>
+          {% endfor %}
+				</select>
+
+				<select class="form-select" name="brand">
+					<option value="" {% if not request.GET.brand %} selected {% endif %}>Todas as Marcas</option>
+					{% for brand in brands %}
+              <option value="{{ brand.id }}" {% if request.GET.brand == brand.id %} selected {% endif %}>{{ brand.name }}</option>
+          {% endfor %}
+				</select>
+
+				<button type="submit" class="btn btn-primary">
+					<i class="bi bi-filter"></i> Filtrar
+				</button>
+			</div>
+		</form>
 	</div>
 </div>
 
