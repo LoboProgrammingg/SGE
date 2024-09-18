@@ -6,9 +6,9 @@
 
 {% block content %}
 
-  {% if perms.products.view_product and perms.inflows.view_inflow %}
-    {% include 'components/_product_metrics.html' %}
-  {% endif %}
+{% if perms.products.view_product and perms.inflows.view_inflow %}
+  {% include 'components/_product_metrics.html' %}
+{% endif %}
 
   <div class="mb-4"></div>
 
