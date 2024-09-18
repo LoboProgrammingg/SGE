@@ -25,7 +25,5 @@ class OutflowForm(forms.ModelForm):
 
         if quantity > product.quantity:
             raise ValidationError(
-                f'A quantidade disponivel em estoque para o produto {product.title} e de {product.quantity} unidades.'
-            )
-        
+                f'A quantidade disponivel em estoque para o produto {product.title} e de {product.quantity} unidades.')
         return quantity

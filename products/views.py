@@ -26,7 +26,7 @@ class ProductListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
 
         if serie_number:
             queryset = queryset.filter(serie_number__icontains=serie_number)
-        
+
         if category:
             queryset = queryset.filter(category__id=category)
 
@@ -34,7 +34,7 @@ class ProductListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
             queryset = queryset.filter(brand__id=brand)
 
         return queryset
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['product_metrics'] = metrics.get_product_metrics()
