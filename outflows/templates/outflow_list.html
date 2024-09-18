@@ -6,8 +6,8 @@ SGE - Saidas
 
 {% block content %}
 
-{% if perms.outflows/_sales_metrics.html %}
-	{% include 'components/_sales_metrics.html' %}
+{% if perms.outflows.view_outflow %}
+{% include 'components/_sales_metrics.html' %}
 {% endif %}
 
 <div class="mb-4"></div>
