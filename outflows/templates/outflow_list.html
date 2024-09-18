@@ -13,7 +13,8 @@ SGE - Saidas
 	<div class="col-md-6">
 		<form method="get" action="{% url 'outflow_list' %}">
 			<div class="input-group">
-				<input type="text" class="form-control" name="product" placeholder="Produto" value="{{ request.GET.product }}">
+				<input type="text" class="form-control" name="product" placeholder="Produto"
+					value="{{ request.GET.product }}">
 				<button type="submit" class="btn btn-primary">
 					<i class="bi bi-search"></i>
 				</button>
@@ -21,11 +22,13 @@ SGE - Saidas
 		</form>
 	</div>
 
-	<div class="col-md-6">
-		<a href="{% url 'outflow_create' %}" class="btn btn-success float-end">
-			<i class="bi bi-plus"></i>Adicionar Saida
-		</a>
-	</div>
+	{% if perms.outflows.add_outflow %}
+		<div class="col-md-6">
+			<a href="{% url 'outflow_create' %}" class="btn btn-success float-end">
+				<i class="bi bi-plus"></i>Adicionar Saida
+			</a>
+		</div>
+	{% endif %}
 </div>
 
 <div class="table-responsive">
@@ -47,9 +50,11 @@ SGE - Saidas
 				<td>{{ outflow.quantity }}</td>
 				<td>{{ outflow.created_at }}</td>
 				<td>
-					<a href="{% url 'outflow_detail' outflow.id %}" class="btn btn-info btn-sm">
-						<i class="bi bi-eye"></i>
-					</a>
+					{% if perms.outflows.view_outflow %}
+						<a href="{% url 'outflow_detail' outflow.id %}" class="btn btn-info btn-sm">
+							<i class="bi bi-eye"></i>
+						</a>
+					{% endif %}
 				</td>
 			</tr>
 			{% endfor %}

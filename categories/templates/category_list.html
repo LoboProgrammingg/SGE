@@ -18,11 +18,11 @@ SGE - Categorias
     </form>
   </div>
   {% if perms.categories.add_category %}
-  <div class="col-md-6">
-    <a href="{% url 'category_create' %}" class="btn btn-success float-end">
-      <i class="bi bi-plus"></i> Nova Categoria
-    </a>
-  </div>
+    <div class="col-md-6">
+      <a href="{% url 'category_create' %}" class="btn btn-success float-end">
+        <i class="bi bi-plus"></i> Nova Categoria
+      </a>
+    </div>
   {% endif %}
 </div>
 
@@ -47,20 +47,23 @@ SGE - Categorias
         <td>{{ category.name }}</td>
         <td>{{ category.description }}</td>
         <td>
-          <a href="{% url 'category_detail' category.id %}" class="btn btn-info btn-sm">
-            <i class="bi bi-eye"></i>
-          </a>
+
+          {% if perms.categories.add_category %}
+            <a href="{% url 'category_detail' category.id %}" class="btn btn-info btn-sm">
+              <i class="bi bi-eye"></i>
+            </a>
+          {% endif %}
 
           {% if perms.categories.change_category %}
-          <a href="{% url 'category_update' category.id %}" class="btn btn-warning btn-sm">
-            <i class="bi bi-pencil"></i>
-          </a>
+            <a href="{% url 'category_update' category.id %}" class="btn btn-warning btn-sm">
+              <i class="bi bi-pencil"></i>
+            </a>
           {% endif %}
 
           {% if perms.categories.delete_category %}
-          <a href="{% url 'category_delete' category.id %}" class="btn btn-danger btn-sm btn-delete">
-            <i class="bi bi-trash"></i>
-          </a>
+            <a href="{% url 'category_delete' category.id %}" class="btn btn-danger btn-sm btn-delete">
+              <i class="bi bi-trash"></i>
+            </a>
           {% endif %}
         </td>
       </tr>
