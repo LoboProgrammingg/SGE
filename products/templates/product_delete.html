@@ -1,22 +1,43 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <!-- Cabeçalho com cor de alerta e efeito de sombra -->
+                <div class="card-header bg-danger text-white text-center py-4">
+                    <h2 class="mb-0">Excluir Produto</h2>
+                </div>
+                
+                <!-- Corpo da carta com mensagem de confirmação e botões -->
+                <div class="card-body text-center py-5">
+                    <p class="lead mb-4">
+                        Você está prestes a excluir o produto <strong>{{ object.title }}</strong>.
+                        <br>
+                        <span class="text-muted">Esta ação é irreversível. Deseja continuar?</span>
+                    </p>
 
-	<div class="container mt-4">
-		<h3 class="display-6">Deletar Produto</h3>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <!-- Botão de confirmação com estilo de alerta -->
+                            <button type="submit" class="btn btn-danger btn-lg">
+                                <i class="fas fa-exclamation-triangle"></i> Confirmar Exclusão
+                            </button>
 
-		<div class="card">
-			<div class="card-body">
-				<p class="card-text">Tem certeza de que deseja excluir o produto <strong>{{ object.title }}</strong>?</p>
+                            <!-- Botão de cancelamento com estilo secundário -->
+                            <a href="{% url 'product_list' %}" class="btn btn-secondary btn-lg">
+                                <i class="fas fa-arrow-left"></i> Cancelar e Voltar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-				<form method="post">
-					{% csrf_token %}
-					<button type="submit" class="btn btn-danger">Deletar</button>
-				</form>
-
-				<a href="{% url 'product_list' %}" class="btn btn-secondary mt-3">Cancelar e Voltar para a Lista de Produtos</a>
-		</div>
-
-	</div>
-
-{% endblock  %}
+<!-- Inclua o ícone FontAwesome, se necessário -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+{% endblock %}
