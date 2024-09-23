@@ -1,4 +1,6 @@
-### Developing an Inventory Management System
+## Developing an Inventory Management System
+
+##### Welcome to the Inventory Management System (SGE), a project developed in Django and Bootstrap 5 to facilitate inventory management.
 
  + Status: Developed the System using Django and Developing the API for the System using DJango Rest Framework.
 
