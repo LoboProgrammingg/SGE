@@ -12,7 +12,7 @@ class ProductListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = models.Product
     template_name = 'product_list.html'
     context_object_name = 'products'
-    paginate_by = 10
+    paginate_by = 5
     permission_required = 'products.view_product'
 
     def get_queryset(self):
