@@ -11,16 +11,6 @@
 
 ---
 
-## ✨ Sobre o Projeto
-
-Descreva aqui brevemente o objetivo da sua aplicação Django, suas principais funcionalidades e diferenciais.  
-Exemplo:
-
-> Este projeto é uma aplicação web desenvolvida com Django focada em [descrever o propósito, ex: gestão de tarefas, blog, sistema financeiro, etc.].  
-> O sistema possui autenticação, painel administrativo, integração com APIs e layout responsivo.
-
----
-
 ## 🚀 Tecnologias Utilizadas
 
 - Python 3.8+
